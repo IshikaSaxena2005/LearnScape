@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
-import { FaStar, FaRegStar } from 'react-icons/fa';
+import { FaStar, FaRegStar, FaChevronDown, FaChevronUp, FaPlay } from 'react-icons/fa';
 import { assets } from '../../assets/assets';
 import YouTube from 'react-youtube';
 
@@ -13,10 +13,15 @@ const CourseDetails = () => {
   const [isAlreadyEnrolled, setIsAlreadyEnrolled] = useState(false);
   const currency = '₹';
 
+  const currentUserId = 'CURRENT_USER_ID'; // Replace with actual user ID from context or auth
+
   useEffect(() => {
     if (allCourses?.length > 0) {
       const course = allCourses.find((course) => course._id === id);
       setCourseData(course);
+      if (course?.enrolledStudents?.includes(currentUserId)) {
+        setIsAlreadyEnrolled(true);
+      }
     }
   }, [allCourses, id]);
 
@@ -37,9 +42,9 @@ const CourseDetails = () => {
   const roundedRating = Math.round(rating);
 
   const originalPrice = Number(courseData.coursePrice || 0);
-  const discountedPrice = (
-    originalPrice - (courseData.discount * originalPrice) / 100
-  ).toFixed(2);
+  const discount = Number(courseData.discount || 0);
+  const discountedPrice = (originalPrice - (discount * originalPrice) / 100).toFixed(2);
+  const daysLeft = courseData.offerDuration || 5;
 
   return (
     <div className="relative flex flex-col md:flex-row gap-12 md:px-24 px-6 pt-20 md:pt-32 pb-16 text-left bg-gradient-to-b from-purple-50 to-white min-h-screen">
@@ -96,8 +101,8 @@ const CourseDetails = () => {
                   <h3 className="text-xl font-semibold text-purple-800 mb-2">
                     {chapter.chapterTitle}
                   </h3>
-                  <span className="text-sm text-purple-600">
-                    {openSection[index] ? '▲ Hide' : '▼ Show'}
+                  <span className="text-purple-600">
+                    {openSection[index] ? <FaChevronUp /> : <FaChevronDown />}
                   </span>
                 </div>
                 <p className="text-sm text-gray-500 mb-3">
@@ -112,7 +117,8 @@ const CourseDetails = () => {
                         key={idx}
                         className="flex justify-between items-center bg-purple-50 px-4 py-2 rounded-md hover:bg-purple-100 transition"
                       >
-                        <span className="text-gray-800 text-sm font-medium">
+                        <span className="text-gray-800 text-sm font-medium flex items-center gap-2">
+                          <FaPlay className="text-purple-500" />
                           {lecture.lectureTitle} - {lecture.lectureDuration} mins
                         </span>
                       </li>
@@ -133,11 +139,7 @@ const CourseDetails = () => {
           {courseData.videoId ? (
             <YouTube
               videoId={courseData.videoId}
-              opts={{
-                playerVars: {
-                  autoplay: 1,
-                },
-              }}
+              opts={{ playerVars: { autoplay: 0 } }}
               iframeClassName="w-full aspect-video rounded-2xl shadow-lg border border-purple-200"
             />
           ) : (
@@ -157,12 +159,14 @@ const CourseDetails = () => {
               src={assets.time_left_clock_icon}
               alt="time left clock icon"
             />
-            <span className="text-gray-800 font-medium">5 days left</span>
+            <span className="text-gray-800 font-medium">{daysLeft} days left</span>
           </div>
 
           {/* Price */}
           <div className="mt-4 text-center">
-            <p className="text-sm text-red-600 font-bold mb-1">Hurry! This offer ends in 5 days.</p>
+            <p className="text-sm text-red-600 font-bold mb-1">
+              Hurry! This offer ends in {daysLeft} days.
+            </p>
             <div className="flex justify-center items-center gap-3 text-lg md:text-xl font-bold">
               <span className="line-through text-gray-500">
                 {currency} {originalPrice.toFixed(2)}
@@ -184,7 +188,12 @@ const CourseDetails = () => {
           </div>
 
           {/* Enroll Button */}
-          <button className="mt-6 w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-lg shadow-md transition duration-300">
+          <button
+            disabled={isAlreadyEnrolled}
+            className={`mt-6 w-full py-3 rounded-xl ${
+              isAlreadyEnrolled ? 'bg-gray-400 cursor-not-allowed' : 'bg-purple-600 hover:bg-purple-700'
+            } text-white font-semibold text-lg shadow-md transition duration-300`}
+          >
             {isAlreadyEnrolled ? 'Already Enrolled' : 'Enroll Now'}
           </button>
         </div>
