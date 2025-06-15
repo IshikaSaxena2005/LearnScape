@@ -18,13 +18,15 @@ const Navbar = () => {
       }`}
     >
       {/* Logo */}
-      <Link to="/" className="flex items-center">
-        <img onClick={()=>navigate('/')}
-          src={assets.logo}
-          alt="LearnScape Logo"
-          className="h-14 w-auto cursor-pointer"
-        />
-      </Link>
+ <Link to="/" className="flex items-center">
+  <img
+    onClick={() => navigate('/')}
+    src={assets.logo}
+    alt="LearnScape Logo"
+    className="h-20 w-auto cursor-pointer" // increased from h-14 to h-20
+  />
+</Link>
+
 
       {/* Navigation & Button */}
       <div className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
