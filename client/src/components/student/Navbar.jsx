@@ -18,14 +18,16 @@ const Navbar = () => {
       }`}
     >
       {/* Logo */}
- <Link to="/" className="flex items-center">
+<Link to="/" className="flex items-center h-full bg-[#ede7f6] px-2 py-1 rounded-md">
   <img
     onClick={() => navigate('/')}
     src={assets.logo}
     alt="LearnScape Logo"
-    className="h-20 w-auto cursor-pointer" // increased from h-14 to h-20
+    className="h-16 w-auto object-contain cursor-pointer"
+    style={{ backgroundColor: '#ede7f6' }} // Optional inline style
   />
 </Link>
+
 
 
       {/* Navigation & Button */}
