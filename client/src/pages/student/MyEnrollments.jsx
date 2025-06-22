@@ -1,8 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../../context/AppContext';
 
 const MyEnrollments = () => {
   const { enrolledCourses, calculateCourseDuration } = useContext(AppContext);
+
+  const [progressArray] = useState([
+    { lectureCompleted: 2, totalLectures: 4 },
+    { lectureCompleted: 1, totalLectures: 5 },
+    { lectureCompleted: 6, totalLectures: 6 },
+    { lectureCompleted: 0, totalLectures: 4 },
+    { lectureCompleted: 2, totalLectures: 3 },
+    { lectureCompleted: 7, totalLectures: 7 },
+    { lectureCompleted: 3, totalLectures: 8 },
+    { lectureCompleted: 4, totalLectures: 6 },
+    { lectureCompleted: 9, totalLectures: 10 },
+    { lectureCompleted: 5, totalLectures: 5 },
+    { lectureCompleted: 5, totalLectures: 7 },
+    { lectureCompleted: 1, totalLectures: 4 },
+    { lectureCompleted: 1, totalLectures: 2 },
+    { lectureCompleted: 4, totalLectures: 5 },
+  ]);
 
   return (
     <div className="md:px-36 px-6 pt-10 pb-16 min-h-screen bg-white">
@@ -19,33 +36,52 @@ const MyEnrollments = () => {
             </tr>
           </thead>
           <tbody>
-            {enrolledCourses.map((course, index) => (
-              <tr
-                key={index}
-                className="odd:bg-purple-50 even:bg-white hover:bg-purple-100 transition duration-150"
-              >
-                <td className="px-6 py-4 flex items-center gap-4">
-                  <img
-                    src={course.courseThumbnail}
-                    alt={course.courseTitle}
-                    className="w-20 h-14 object-cover rounded-lg border"
-                  />
-                  <div>
-                    <p className="font-medium text-gray-900">{course.courseTitle}</p>
-                    <p className="text-xs text-gray-600">Instructor: {course.instructorName || "Unknown"}</p>
-                  </div>
-                </td>
-                <td className="px-6 py-4 text-gray-800">{calculateCourseDuration(course)}</td>
-                <td className="px-6 py-4 text-gray-800">
-                  4 / 10 <span className="text-gray-500">Lectures</span>
-                </td>
-                <td className="px-6 py-4">
-                  <span className="inline-block bg-purple-200 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full">
-                    On Going
-                  </span>
-                </td>
-              </tr>
-            ))}
+            {enrolledCourses.map((course, index) => {
+              const progress = progressArray[index];
+              const isCompleted =
+                progress &&
+                progress.lectureCompleted === progress.totalLectures;
+
+              return (
+                <tr
+                  key={index}
+                  className="odd:bg-purple-50 even:bg-white hover:bg-purple-100 transition duration-150"
+                >
+                  <td className="px-6 py-4 flex items-center gap-4">
+                    <img
+                      src={course.courseThumbnail}
+                      alt={course.courseTitle}
+                      className="w-20 h-14 object-cover rounded-lg border"
+                    />
+                    <div>
+                      <p className="font-medium text-gray-900">{course.courseTitle}</p>
+                      <p className="text-xs text-gray-600">
+                        Instructor: {course.instructorName || 'Unknown'}
+                      </p>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 text-gray-800">
+                    {calculateCourseDuration(course)}
+                  </td>
+                  <td className="px-6 py-4 text-gray-800">
+                    {progress &&
+                      `${progress.lectureCompleted} / ${progress.totalLectures}`}
+                    <span className="text-gray-500"> Lectures</span>
+                  </td>
+                  <td className="px-6 py-4">
+                    <span
+                      className={`inline-block px-3 py-1 text-xs font-semibold rounded-full ${
+                        isCompleted
+                          ? 'bg-green-200 text-green-800'
+                          : 'bg-purple-200 text-purple-800'
+                      }`}
+                    >
+                      {isCompleted ? 'Completed' : 'On Going'}
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
             {enrolledCourses.length === 0 && (
               <tr>
                 <td colSpan="4" className="px-6 py-8 text-center text-gray-500">
