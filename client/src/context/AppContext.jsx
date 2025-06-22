@@ -54,6 +54,7 @@ export const AppContextProvider = (props) => {
   }
   useEffect(() => {
     fetchAllCourses();
+    fetchUserEnrolledCourses();
   }, []);
 
   const value = {
