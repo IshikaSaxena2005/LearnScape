@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import { Line } from 'rc-progress';
 import Footer from '../../components/student/Footer';
-import { useNavigate } from 'react-router-dom';
 
 const MyEnrollments = () => {
   const { enrolledCourses, calculateCourseDuration } = useContext(AppContext);
-  const navigate = useNavigate(); // for navigation
+  const navigate = useNavigate();
 
   const [progressArray] = useState([
     { lectureCompleted: 2, totalLectures: 4 },
@@ -24,10 +24,6 @@ const MyEnrollments = () => {
     { lectureCompleted: 1, totalLectures: 2 },
     { lectureCompleted: 4, totalLectures: 5 },
   ]);
-
-  const handleNavigateToPlayer = (courseId) => {
-    navigate(`/player/${courseId}`); // Pass course ID dynamically if needed
-  };
 
   return (
     <>
@@ -92,7 +88,9 @@ const MyEnrollments = () => {
                     </td>
                     <td className="px-6 py-4">
                       <span
-                        onClick={() => !isCompleted && handleNavigateToPlayer(course.id)} // only on On Going
+                        onClick={() => {
+                          if (!isCompleted) navigate(`/player/${course._id}`);
+                        }}
                         className={`inline-block px-3 py-1 text-xs font-semibold rounded-full cursor-pointer ${
                           isCompleted
                             ? 'bg-green-200 text-green-800'
