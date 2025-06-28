@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../../context/AppContext';
+import { Line } from 'rc-progress';
 
 const MyEnrollments = () => {
   const { enrolledCourses, calculateCourseDuration } = useContext(AppContext);
@@ -41,6 +42,10 @@ const MyEnrollments = () => {
               const isCompleted =
                 progress &&
                 progress.lectureCompleted === progress.totalLectures;
+              const percentCompleted =
+                progress && progress.totalLectures > 0
+                  ? (progress.lectureCompleted / progress.totalLectures) * 100
+                  : 0;
 
               return (
                 <tr
@@ -48,11 +53,20 @@ const MyEnrollments = () => {
                   className="odd:bg-purple-50 even:bg-white hover:bg-purple-100 transition duration-150"
                 >
                   <td className="px-6 py-4 flex items-center gap-4">
-                    <img
-                      src={course.courseThumbnail}
-                      alt={course.courseTitle}
-                      className="w-20 h-14 object-cover rounded-lg border"
-                    />
+                    <div className="flex flex-col items-center">
+                      <img
+                        src={course.courseThumbnail}
+                        alt={course.courseTitle}
+                        className="w-20 h-14 object-cover rounded-lg border"
+                      />
+                      <Line
+                        strokeWidth={2}
+                        percent={percentCompleted}
+                        strokeColor="#7c3aed"
+                        trailColor="#e5e7eb"
+                        className="mt-2 w-20"
+                      />
+                    </div>
                     <div>
                       <p className="font-medium text-gray-900">{course.courseTitle}</p>
                       <p className="text-xs text-gray-600">
