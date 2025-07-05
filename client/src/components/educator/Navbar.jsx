@@ -18,7 +18,7 @@ const Navbar = () => {
 
       {/* Greeting and Profile */}
       <div className="flex items-center gap-4">
-        <p className="text-gray-800 font-medium">Hi! {user ? user.fullName : 'Developer'}</p>
+        <p className="text-gray-800 font-medium">Hi!  {user ? user.fullName : 'Developer'}</p>
         {user ? (
           <UserButton />
         ) : (
