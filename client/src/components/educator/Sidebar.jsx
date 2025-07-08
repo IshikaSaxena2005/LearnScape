@@ -14,7 +14,7 @@ const Sidebar = () => {
   ];
 
   return isEducator && (
-    <div className="md:w-1/4 w-full bg-gradient-to-b from-purple-100 via-purple-200 to-white min-h-screen p-4 flex flex-col gap-4 shadow-md">
+    <div className="md:w-1/4 w-full bg-gradient-to-b from-white-100 via-white-200 to-white min-h-screen p-4 flex flex-col gap-4 shadow-md">
       {menuItems.map((item, index) => (
         <NavLink
           key={index}
