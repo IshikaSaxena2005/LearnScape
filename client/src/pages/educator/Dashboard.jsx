@@ -43,8 +43,6 @@ const Dashboard = () => {
             <p className="text-gray-500 text-sm mt-1">Total Courses</p>
           </div>
         </div>
-
-
         {/* Total Earnings Card */}
         <div className="flex items-center bg-white shadow-md rounded-xl p-6 gap-5 border border-gray-100 hover:shadow-lg transition">
           <div className="bg-purple-100 p-4 rounded-full">
