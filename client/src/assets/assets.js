@@ -44,6 +44,7 @@ import profile_img3 from './profile_img3.png'
 import lesson_icon from './lesson_icon.svg'
 import linkedin_logo from './linkedin_logo.png'
 
+
 export const assets = {
     logo,
     linkedin_logo,
@@ -92,6 +93,7 @@ export const assets = {
     lesson_icon
 }
 
+
 export const dummyEducatorData = {
     "_id": "675ac1512100b91a6d9b8b24",
     "name": "LearnScape",
@@ -101,6 +103,7 @@ export const dummyEducatorData = {
     "updatedAt": "2024-12-12T10:56:17.930Z",
     "__v": 0
 }
+
 
 export const dummyTestimonial = [
     {
@@ -125,6 +128,7 @@ export const dummyTestimonial = [
         feedback: 'The product management bootcamp was packed with insights and case studies from top companies. I especially appreciated the mock interviews and resume review sessions.',
     },
 ];
+
 
 export const dummyDashboardData = {
     "totalEarnings": 707.38,
@@ -173,6 +177,7 @@ export const dummyDashboardData = {
     "totalCourses": 8
 }
 
+
 export const dummyStudentEnrolled = [
     {
         "student": {
@@ -211,6 +216,7 @@ export const dummyStudentEnrolled = [
         "purchaseDate": "2024-12-20T11:04:48.798Z"
     }
 ]
+
 
 export const dummyCourses = [
     {
@@ -281,13 +287,13 @@ export const dummyCourses = [
                 "_id": "6773e37360cb0ab974342314"
             }
         ],
-        "createdAt": "2024-12-17T08:16:53.622Z",
-        "updatedAt": "2025-01-02T04:47:44.701Z",
+        "createdAt": "2025-06-12T10:15:30.123Z",
+        "updatedAt": "2025-07-05T11:20:10.456Z",
         "__v": 4,
         "courseThumbnail": "https://img.youtube.com/vi/CBWnBi-awSA/maxresdefault.jpg"
     },
     {
-        "_id": "675ac1512100b91a6d9b8b24",
+        "_id": "a2b3c4d5e6f7g8h9i0j1k2l3",
         "courseTitle": "Advanced Python Programming",
         "courseDescription": "<h2>Deep Dive into Python Programming</h2><p>This course is designed for those who have a basic understanding of Python and want to take their skills to the next level. You will explore advanced topics such as decorators, generators, and context managers.</p><p>By the end of this course, you will be able to write efficient and clean Python code, and understand how to leverage Python's powerful features for real-world applications.</p><ul><li>Master advanced data structures</li><li>Implement object-oriented programming concepts</li><li>Work with libraries and frameworks</li></ul>",
         "coursePrice": 650,
@@ -353,8 +359,8 @@ export const dummyCourses = [
                 "_id": "6776369244daad0f313d81a9"
             }
         ],
-        "createdAt": "2024-12-17T08:16:53.622Z",
-        "updatedAt": "2025-01-02T06:47:54.446Z",
+        "createdAt": "2025-07-02T08:00:00.000Z",
+        "updatedAt": "2025-07-18T09:30:00.000Z",
         "__v": 3,
         "courseThumbnail": "https://img.youtube.com/vi/HdLIMoQkXFA/maxresdefault.jpg"
     },
@@ -419,8 +425,8 @@ export const dummyCourses = [
             "user_2qjlgkAqIMpiR2flWIRzvWKtE0w"
         ],
         "courseRatings": [],
-        "createdAt": "2024-12-27T11:30:00.000Z",
-        "updatedAt": "2024-12-31T04:14:49.773Z",
+        "createdAt": "2025-06-25T14:00:00.000Z",
+        "updatedAt": "2025-07-10T15:00:00.000Z",
         "__v": 2,
         "courseThumbnail": "https://img.youtube.com/vi/jZFaMEqEqEQ/maxresdefault.jpg"
     },
@@ -485,8 +491,8 @@ export const dummyCourses = [
             "user_2qjlgkAqIMpiR2flWIRzvWKtE0w"
         ],
         "courseRatings": [],
-        "createdAt": "2024-12-17T08:16:53.622Z",
-        "updatedAt": "2024-12-31T05:31:27.290Z",
+        "createdAt": "2025-07-01T18:45:00.000Z",
+        "updatedAt": "2025-07-19T20:00:00.000Z",
         "__v": 2,
         "courseThumbnail": "https://img.youtube.com/vi/lpx2zFkapIk/maxresdefault.jpg"
     },
@@ -550,13 +556,13 @@ export const dummyCourses = [
             "user_2qjlgkAqIMpiR2flWIRzvWKtE0w"
         ],
         "courseRatings": [],
-        "createdAt": "2024-12-17T08:16:53.622Z",
-        "updatedAt": "2024-12-31T05:32:55.357Z",
+        "createdAt": "2025-06-08T12:00:00.000Z",
+        "updatedAt": "2025-07-03T13:10:00.000Z",
         "__v": 1,
         "courseThumbnail": "https://img.youtube.com/vi/0yboGn8errU/maxresdefault.jpg"
     },
     {
-        "_id": "605c72efb3f1c2b1f8e4e1ad",
+        "_id": "b3c4d5e6f7g8h9i0j1k2l3m4",
         "courseTitle": "Data Science with Python",
         "courseDescription": "<h2>Start Your Data Science Journey</h2><p>Data Science is one of the most in-demand fields in the world. This course teaches you the essentials of data analysis, visualization, and machine learning using Python. Learn libraries like Pandas, NumPy, Matplotlib, and Scikit-learn.</p><p>By the end of this course, you will be equipped to work on real-world data projects and gain insights from data.</p><ul><li>Data cleaning and preprocessing</li><li>Exploratory Data Analysis (EDA)</li><li>Build predictive models</li></ul>",
         "coursePrice": 800,
@@ -623,13 +629,13 @@ export const dummyCourses = [
                 "_id": "6773acf160cb0ab974342248"
             }
         ],
-        "createdAt": "2024-12-27T10:00:00.000Z",
-        "updatedAt": "2024-12-31T09:57:48.992Z",
+        "createdAt": "2025-06-30T10:00:00.000Z",
+        "updatedAt": "2025-07-20T09:57:48.992Z",
         "__v": 3,
         "courseThumbnail": "https://img.youtube.com/vi/E4znbZgUWzA/maxresdefault.jpg"
     },
     {
-        "_id": "605c72efb3f1c2b1f8e4e1aa",
+        "_id": "c4d5e6f7g8h9i0j1k2l3m4n5",
         "courseTitle": "Data Science and Machine Learning",
         "courseDescription": "<h2>Unlock the Power of Data</h2><p>This course provides a comprehensive introduction to data science and machine learning. You will learn how to analyze data, build predictive models, and apply machine learning algorithms to real-world problems.</p><p>By the end of this course, you will have a solid understanding of data manipulation, visualization, and machine learning techniques, enabling you to make data-driven decisions.</p><ul><li>Understand data analysis and visualization</li><li>Learn machine learning algorithms and their applications</li><li>Work with popular data science libraries like Pandas and Scikit-Learn</li></ul>",
         "coursePrice": 890,
@@ -688,13 +694,13 @@ export const dummyCourses = [
             "user_2qjlgkAqIMpiR2flWIRzvWKtE0w"
         ],
         "courseRatings": [],
-        "createdAt": "2024-12-17T08:16:53.622Z",
-        "updatedAt": "2025-01-02T06:53:59.753Z",
+        "createdAt": "2025-07-07T08:16:53.622Z",
+        "updatedAt": "2025-07-21T06:53:59.753Z",
         "__v": 1,
         "courseThumbnail": "https://img.youtube.com/vi/631lFJdQvoo/maxresdefault.jpg"
     },
     {
-        "_id": "605c72efb3f1c2b1f8e4e1ab",
+        "_id": "d5e6f7g8h9i0j1k2l3m4n5o6",
         "courseTitle": "Introduction to Cybersecurity",
         "courseDescription": "<h2>Protect the Digital World</h2><p>This course covers the essentials of cybersecurity, including understanding threats, vulnerabilities, and how to secure systems against cyber-attacks. Ideal for beginners, this course will prepare you for a career in cybersecurity.</p><p>By the end of this course, you will be able to identify and mitigate risks, implement security best practices, and understand the fundamentals of encryption and network security.</p><ul><li>Understand common cybersecurity threats</li><li>Learn about encryption and secure communication</li><li>Explore tools for penetration testing</li></ul>",
         "coursePrice": 560,
@@ -753,8 +759,8 @@ export const dummyCourses = [
             "user_2qjlgkAqIMpiR2flWIRzvWKtE0w"
         ],
         "courseRatings": [],
-        "createdAt": "2024-12-17T08:16:53.622Z",
-        "updatedAt": "2025-01-02T06:56:13.208Z",
+        "createdAt": "2025-06-22T08:16:53.622Z",
+        "updatedAt": "2025-07-22T06:56:13.208Z",
         "__v": 1,
         "courseThumbnail": "https://img.youtube.com/vi/WbV3zRgpw_E/maxresdefault.jpg"
     }
